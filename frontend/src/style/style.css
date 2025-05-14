@@ -3,8 +3,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f1ea; /* Light coffee-like background */
-    color: #4b3832; /* Dark coffee-like text color */
+    background-color: #f4f1ea;
+    color: #4b3832;
 }
 
 /* Center the login container */
@@ -12,7 +12,7 @@ body {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff; /* White background for contrast */
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -22,7 +22,7 @@ body {
 .login-container h1 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #6f4e37; /* Coffee brown color */
+    color: #6f4e37;
 }
 
 /* Label styles */
@@ -48,7 +48,7 @@ body {
 .login-container button {
     width: 100%;
     padding: 10px;
-    background-color: #6f4e37; /* Coffee brown color */
+    background-color: #6f4e37;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -58,10 +58,10 @@ body {
 }
 
 .login-container button:hover {
-    background-color: #4b3832; /* Darker coffee brown on hover */
+    background-color: #4b3832;
 }
 
-/* Add some decorative elements */
+/* Decorative background */
 body::before {
     content: '';
     position: absolute;
@@ -69,7 +69,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 200px;
-    background: linear-gradient(to bottom, #6f4e37, #f4f1ea); /* Coffee gradient */
+    background: linear-gradient(to bottom, #6f4e37, #f4f1ea);
     z-index: -1;
 }
 
@@ -87,7 +87,7 @@ body::before {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #6f4e37; /* Coffee brown color */
+    background-color: #6f4e37;
     color: #fff;
 }
 
@@ -96,9 +96,15 @@ body::before {
     margin: 0;
 }
 
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Update button */
 .update-button {
     padding: 10px 20px;
-    background-color: #4b3832; /* Darker coffee brown */
+    background-color: #4b3832;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -107,7 +113,22 @@ body::before {
 }
 
 .update-button:hover {
-    background-color: #3a2c28; /* Even darker coffee brown */
+    background-color: #3a2c28;
+}
+
+/* Logout button */
+.logout-button {
+    padding: 10px 20px;
+    background-color: #a0522d; /* Sienna brown */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #8b4513; /* Darker sienna */
 }
 
 /* Main content styles */
@@ -132,7 +153,7 @@ body::before {
 }
 
 .harvest-table th {
-    background-color: #6f4e37; /* Coffee brown */
+    background-color: #6f4e37;
     color: #fff;
 }
 
@@ -146,9 +167,9 @@ body::before {
 
 /* Row-specific styles */
 .row-cafe {
-    background-color: #f4f1ea; /* Light coffee-like background */
+    background-color: #f4f1ea;
 }
 
 .row-cana {
-    background-color: #e8e2d9; /* Slightly darker coffee-like background */
+    background-color: #e8e2d9;
 }
