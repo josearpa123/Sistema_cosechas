@@ -9,3 +9,27 @@ services:
       - "80:80"
     volumes:
       - ./frontend/src:/usr/share/nginx/html
+    
+  
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: coffe
+      POSTGRES_PASSWORD: coffe
+      POSTGRES_DB: coffee_cosecha
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db_init:/docker-entrypoint-initdb.d
+
+    ports:
+      - "5432:5432"
+    networks:
+      - mynetwork
+
+volumes:
+  db_data:
+    driver: local
+networks:
+  mynetwork:
+    driver: bridge
