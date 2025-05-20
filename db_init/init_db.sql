@@ -152,3 +152,14 @@ CREATE INDEX IF NOT EXISTS idx_cosecha_idcultivo ON Cosecha(Id_Cultivo);
 CREATE INDEX IF NOT EXISTS idx_venta_idcosecha ON Venta(Id_Cosecha);
 CREATE INDEX IF NOT EXISTS idx_cosecha_fechacosecha ON Cosecha(Fecha_Cosecha);
 CREATE INDEX IF NOT EXISTS idx_venta_fechaventa ON Venta(Fecha_Venta);
+
+-- Crear roles de base de datos (roles de acceso a nivel DB)
+DO $$
+BEGIN
+    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'gerente_finca') THEN
+        CREATE ROLE gerente_finca LOGIN PASSWORD 'gerente_pass';
+    END IF;
+    IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'trabajador_campo') THEN
+        CREATE ROLE trabajador_campo LOGIN PASSWORD 'trabajador_pass';
+    END IF;
+END $$;

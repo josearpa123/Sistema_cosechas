@@ -1,7 +1,12 @@
 import psycopg2
 from dotenv import load_dotenv
 import os
-
+from generador import (
+    test_connection,
+    insertar_tipos_cultivo_si_no_existen,
+    insertar_cultivos_si_no_existen,
+    simular_cosechas
+)
 load_dotenv()
 
 DB_HOST = os.getenv("DB_HOST")
@@ -64,7 +69,8 @@ def menu():
         print("\n--- Menú de Inserción ---")
         print("1. Insertar usuario")
         print("2. Insertar finca")
-        print("3. Salir")
+        print("3. simular cosechas")
+        print("4. salir")
         opcion = input("Elige una opción: ")
         if opcion == "1":
             nombre = input("Nombre usuario: ")
@@ -78,10 +84,22 @@ def menu():
             area_val = float(area) if area else None
             insertar_finca(nombre, ubicacion if ubicacion else None, area_val)
         elif opcion == "3":
+            ejecutar_simulador()
+        elif opcion == "4":
             print("Saliendo...")
             break
         else:
             print("Opción inválida, intenta de nuevo.")
+
+def ejecutar_simulador():
+    if test_connection():
+        insertar_tipos_cultivo_si_no_existen()
+        insertar_cultivos_si_no_existen()
+        simular_cosechas()
+    else:
+        print("❌ No se puede iniciar la simulación por problemas de conexión.")
+
+
 
 if __name__ == "__main__":
     menu()

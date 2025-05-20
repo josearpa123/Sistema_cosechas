@@ -1,18 +1,18 @@
-# backend/Dockerfile
-
+# Imagen base con Python
 FROM python:3.11-slim
 
+# Establecer directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiamos solo requirements primero para aprovechar el cache de docker
-COPY src/requirements.txt .
-
+# Copiar requirements y código fuente
+COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiamos todo el código fuente
-COPY src/ .
+# Copiar el resto del proyecto
+COPY . .
 
-# Copiamos el archivo .env (debes tenerlo en backend/.env o cambiar ruta)
-COPY ../src/.env .
+# Exponer el puerto si usas algún servicio HTTP (opcional)
+# EXPOSE 8000
 
-CMD ["python", "generador.py"]
+# Comando por defecto: ejecutar el archivo principal
+CMD ["python", "src/main.py"]
