@@ -82,6 +82,13 @@ CREATE TABLE IF NOT EXISTS Rol (
     Nombre_Rol VARCHAR(50) NOT NULL UNIQUE
 );
 
+-- Insertar roles predeterminados en la tabla Rol
+INSERT INTO Rol (Nombre_Rol) VALUES 
+('Gerente'),
+('Empleado'),
+('Administrador')
+ON CONFLICT (Nombre_Rol) DO NOTHING;
+
 CREATE TABLE IF NOT EXISTS Usuario (
     Id_Usuario SERIAL PRIMARY KEY,
     Nombre_Usuario VARCHAR(100) NOT NULL UNIQUE,
